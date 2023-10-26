@@ -53,4 +53,13 @@ credentials:
                 ATzkKswbOJekxOBaMQf4T6murWymWdAb8pHQ57DtNQqd4k1BE4xHaA==
                 -----END RSA PRIVATE KEY-----
           scope: GLOBAL
+tool:
+  sonarRunnerInstallation:
+    installations:
+    - name: "SonarQube"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "5.0.1.3006"
 
