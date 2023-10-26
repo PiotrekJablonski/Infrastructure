@@ -1,0 +1,56 @@
+jenkins:
+  securityRealm:
+    local:
+      users:
+      - id: "panda"
+        name: "panda"
+        password: "panda"
+  authorizationStrategy:
+    globalMatrix:
+      permissions: 
+      - "Overall/Administer:panda"
+  numExecutors: 0
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          username: "admin"
+          password: "password"
+          id: "artifactory"
+          scope: GLOBAL
+      - basicSSHUserPrivateKey:
+          username: "jenkins"
+          id: "jenkins_agent"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIEpAIBAAKCAQEAq1r/yNIfSOOXaJ5DvXA5feVmCBQ3x45Bawa+YPHW3rkrmwtR
+                MonsgjJZnx4VGEwkcsGqBqooEpvxUdqV5MP+YKGyP0EB52g6DL+h0xDqDjUBGMSI
+                0tvCti1D7mptVVEFe2Vo20fS4XvMFzSoBmVcY11KtM1eZCNu9vJnDLujncu5jKFS
+                FUkBB88d+NzTBxZ8UaQChmM7MlqRc1AGws7E5l7IIFyY06l2OkuR9FzAZSZEYTuy
+                UxfbxHzw4Pr/5TwntijcAMDrY9JKaHr9YfPXLGkINw1gq8YTv5a54GOFYetJxSb0
+                ESDsV4f4IXjHg1/dCLJvQV27bf9kOvzOhyOEAQIDAQABAoIBADCTdvBklKbSkgD/
+                4J8q2bl1VwPSS2/ARY5EFqMf27Q+1Pw6bJXBoLDV+i8P1ZYSO8DmYr9J7Fs+Jt53
+                80crQoj9Pa0Nzi7eDpq/lm3hnSBS6VEuocT4tI11boz/Uag+dCnjeSK0jTULpbMs
+                Y7eQc2zdrQhtMaV8n//Uft8OsFbSS2kLPn5tWhC89CzDFJICvGECH9D4zljDcmkx
+                RMznUKPPNrkTkd91kh2QZyFjhu5Yub2mPs9S56vdV6O0n2mcoyjK8+buK8RY8xat
+                TV+l8WEHxDMrGScNkcEuaT+nuWYdZNTuNAiyAmI7OzpL2KTZaxp8bR3ZxIHKg1EG
+                jB5CtusCgYEA4JhtGURK3siqpeu9coCiARGClByUIdhVjKI5eTGWMV2a9e8ObrVZ
+                0wa1Ug0sdBPbx/MKuPOR0ecIOpVbOX6UiSj6ySP4tGcJAgRjR29syAl1lXWemPsH
+                ONxy0yZ2xf6IRbxiMhLakJBnBtSFEhlWF9Oo+WceuRVxP9FZBGYaZqcCgYEAw1DO
+                XURwOiADvL0KTcbx83VW7p9DrMv8Fl6npJjcLZtFy2U3DqYZxBrTPANmVh3NXH3Y
+                SKUXuJHpC1rTd3gzvO3XODoPfiTTfL5zzCyW56/CpTy59nZfgSOHaPKA1W/75gn7
+                Dk4He27AzC972YGuxaR9sBud9volR55QNXWNvRcCgYB8yLN04limxt7pKL0tLQLV
+                jSD7oZU76LI/XLKJ/17vNo6uLY/bOq8ZbBS57c/Q/meSBBrk/475DF+qDOmOXCGy
+                wy3zKyU3NjfvAvkV63aI/Zhy3dKsNGyizviNEEXVY8Ha3PvBzm/Y+iIDzXfRwnnu
+                6w5q4zxSoPM2/d1zcDci6QKBgQCg6Wzq6Bxxtrh9gV0A0Pu68Rwqwam2rePE5jzF
+                XW5gYIEy3fNrLSsjJlqLId3o6uqq3b8XsnQFiqhtw2lfDvfJGkXqu+LRsTNPnXS3
+                bLDythntmkc3JzTtpsDDlK7RqU3lqqlckqqVZZyPXDtz6eR8TlWChm4w8MtP4r0A
+                HhYlBwKBgQCJgs4PsskJUi7dlcwzMzjLn416TJQ2owbVwo5aLvfhQqsbir3MyNxh
+                sY6xYdVseCz7q3cdCpcmuStyJ2k4lxNjmAVMKi2huaK8LlgubHAiN2dP0z5Mrpqn
+                ATzkKswbOJekxOBaMQf4T6murWymWdAb8pHQ57DtNQqd4k1BE4xHaA==
+                -----END RSA PRIVATE KEY-----
+          scope: GLOBAL
+
