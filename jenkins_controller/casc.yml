@@ -10,6 +10,19 @@ jenkins:
       permissions: 
       - "Overall/Administer:panda"
   numExecutors: 0
+
+  nodes:
+  - permanent:
+      labelString: "agent"
+      launcher:
+        ssh:
+          credentialsId: "jenkins_agent"
+          host: "192.168.44.44"
+          port: 2222
+          sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+      name: "agent"
+      remoteFS: "/home/jenkins/agent"
+      retentionStrategy: "always"
 credentials:
   system:
     domainCredentials:
@@ -27,41 +40,41 @@ credentials:
               privateKey: |
                 -----BEGIN OPENSSH PRIVATE KEY-----
                 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
-                NhAAAAAwEAAQAAAYEA1TT3s55wQwp1Y89IYmNj4nUQIYNKAn456bv0OaGyla17+mIh4szU
-                emEv+RjF13c5lKBAOcRpGJMybUVsQC2M1OmfT06kdujlmSAz+A8WaQ/oPuJqArDppYrwUQ
-                w01oB8s70MS3MmNjcOyvy45pPG4vK73AEK/g5vDscM8Godl6g+GdDTkljhtpkgMLXAGuVY
-                1JiaBorriqus1eOZoGV7nZ2VhlqDw8pYTpUP/tgnc3lXTXsZtmMEtjNTSaeUK9Sksjok5j
-                6hEtDef/Ae/2Mmnx+uaUgbEDuo6sT4xj/UXX+BxqDzA7ga//tzVKvJXpuqv2JppGni/ZgG
-                4nnuE2sUMQO6oqiE0q+fC/OHeqJI9zBQMhgkeumNDMs3NaudpJAoTnBvduOlzL0j2gMy9w
-                TDD9p/PHuzhJEfmLS8q4G75mRDip19Ma0nU2qXcHSvsVm0YKrr8usESEhG6iHv34zQj/hq
-                CEXDHdk5Qr33nl9awIkiiBhYRJbNRy9S7/0YQ6vLAAAFiKTLNIqkyzSKAAAAB3NzaC1yc2
-                EAAAGBANU097OecEMKdWPPSGJjY+J1ECGDSgJ+Oem79DmhspWte/piIeLM1HphL/kYxdd3
-                OZSgQDnEaRiTMm1FbEAtjNTpn09OpHbo5ZkgM/gPFmkP6D7iagKw6aWK8FEMNNaAfLO9DE
-                tzJjY3Dsr8uOaTxuLyu9wBCv4Obw7HDPBqHZeoPhnQ05JY4baZIDC1wBrlWNSYmgaK64qr
-                rNXjmaBle52dlYZag8PKWE6VD/7YJ3N5V017GbZjBLYzU0mnlCvUpLI6JOY+oRLQ3n/wHv
-                9jJp8frmlIGxA7qOrE+MY/1F1/gcag8wO4Gv/7c1SryV6bqr9iaaRp4v2YBuJ57hNrFDED
-                uqKohNKvnwvzh3qiSPcwUDIYJHrpjQzLNzWrnaSQKE5wb3bjpcy9I9oDMvcEww/afzx7s4
-                SRH5i0vKuBu+ZkQ4qdfTGtJ1Nql3B0r7FZtGCq6/LrBEhIRuoh79+M0I/4aghFwx3ZOUK9
-                955fWsCJIogYWESWzUcvUu/9GEOrywAAAAMBAAEAAAGAaPIolyZ+9dD5FYcbhyqLKRYcOZ
-                LJZE7DrPSSc6fPIvQBGa8iJORUFmUuWvvBrpyGIE19L7IpVSpnYPgSH8kMEGVqwHviYpGj
-                Kmt6iTjL/C0TUZjbO7XfXFf2kL5kZ81ZFJQSsDTe80LIqkwZq43EEUQQCmwNAB8UtX5vNQ
-                vWwybSYpyy989+UwYunStpgxOvVP5EmsHYzSpR6fqdTSGG5n+B8V8uirpYG14uQHAfgyyQ
-                N5hHgMpesFy1O4UcXzLMdNK0oAZ6pbQUPZkmjW1Z+NvEnZmQQa8MTbfGpbH5L+3VGu32IS
-                3wzVKwMFUCvd1umEBvpvxWsWnj8YMYKY1HR5U/loicl+2QdAwEf9Fj8CZdRVJbD7R5WgbR
-                f7lN3PbEB4mbrts9Tn9KxG52HVRpqzQfBeQXySq0Pcn4h5rryYVIsc2jXMKf/o4/7zVr7n
-                M53pTEKdvvy667IZ25Pyr+VR8KFmnUYZr61vphGyj02uk5fv4NaezVibQsfSGh48FRAAAA
-                wBXx/cQmMf7HLYROAb0TlPh9PD30aUsHn0rYnOTcLH+CAgJlpn/x5a7YWuzDPREcQlUZvk
-                FdrLE9hbPh4sXQ9c5YxDpOS53ozy2ze/+wFAskHocIC7XIzCXn00OzZFdqlGPALKsIPv/G
-                ESlFBERUxz4rMzIH4kU82rMziEpQvNTLACktzysRfWNHGAYCmmvTNMBKDxY1DW1OLvWekn
-                HoH0Zcn4YAkjMyE5D1XEtaWmjlJSSzYmkR+yEaWRV96pdjaQAAAMEA5bbaHaQnsxKQa7NJ
-                250pvWZ9HYVNMTvjmaUNEkBzf2sugVBoceoFiJQsCEhN8tKx9EB+JJteNAhE0I5Cc54shf
-                eUYpZrfoDImTFcZCbwQv1jJ4J7mtUFlqUDOiDMO9MMAKcqO8NHb63+DsGl7lq8uRyxoIvL
-                y1juZKYaxg2w82GVvd4pPfkuuWsqizAwoUCJOHQX1R6c9aMLV5Faf55UNqCDitSUI4REWf
-                DVzl0kOgbdKXu+64LxBjUquC/n1ua5AAAAwQDtmo5mBDqRoTqRS1iNL1sV6T1pM4ReNwsj
-                PUvJIi+EBizvWIxKXd1BWVjgPwxkhb6KHU9cEGdtTbjCFiEduMHjFe7QDkPUGzeqH2Kt35
-                XMDzQl+VJsLIzep27Sb8CbY0MHKy4iWgE7PXd0ikMVAg5nlTGr0NC9TXLqYTmx8Eo9z/3O
-                uoqWKgiTJ7otq7MtmCVz6pd3XmKES52TlvL2TfkPB6Tt1ENinOoqKJdWRgAOK5PQHNiEUU
-                +w8ftSqcOC5KMAAAAPdmFncmFudEB2YWdyYW50AQIDBA==
+                NhAAAAAwEAAQAAAYEA2APWJBlk3kaz4nHv8zAXbeZRZDkZYqR2k3zJYJqbJiAlTr6KtaSj
+                8M5x0j01wg1P9HmHkRDDa58AfrXNgB1fZhsdjXj42S63RwJUB1wFvwttq/znzWadMQoYA+
+                ZYcyooIGPZk7jWiN3iJhOL9GbcSbaAswmNkYUFUha8h4mBR+y/ZHS02dFwjAHsFqhiplDs
+                1igm8yZEGPZUQ1lY4ZSyhpTg7QzfJF+Oh5qWnknxSq2TwWKutYvt7CYTnooXTMihWp6mVk
+                nSBDcNZS4ySvWSjTPhnlQzrmW9ZpSDnBkDQndVavKaUcs8cUQspGEDYMrek36+qmyBkpwF
+                INvUQV8KqhmvXgLBCFeJ70dnqg+Nld/ZFsnhue04gR/VDrAGmK6WqgereKP/2bHNKqdhGh
+                eotniqMF12OVJ1zBFQoMY6j50KT4zo1hUHEs+QYDjfM66XdWeTHemo/kGENxO0LkCowXsJ
+                djuQPYYHaZeJ0As/UJBvIfIJxA+uDqx8XrLkz4rNAAAFiP/krwr/5K8KAAAAB3NzaC1yc2
+                EAAAGBANgD1iQZZN5Gs+Jx7/MwF23mUWQ5GWKkdpN8yWCamyYgJU6+irWko/DOcdI9NcIN
+                T/R5h5EQw2ufAH61zYAdX2YbHY14+Nkut0cCVAdcBb8Lbav8581mnTEKGAPmWHMqKCBj2Z
+                O41ojd4iYTi/Rm3Em2gLMJjZGFBVIWvIeJgUfsv2R0tNnRcIwB7BaoYqZQ7NYoJvMmRBj2
+                VENZWOGUsoaU4O0M3yRfjoealp5J8Uqtk8FirrWL7ewmE56KF0zIoVqeplZJ0gQ3DWUuMk
+                r1ko0z4Z5UM65lvWaUg5wZA0J3VWrymlHLPHFELKRhA2DK3pN+vqpsgZKcBSDb1EFfCqoZ
+                r14CwQhXie9HZ6oPjZXf2RbJ4bntOIEf1Q6wBpiulqoHq3ij/9mxzSqnYRoXqLZ4qjBddj
+                lSdcwRUKDGOo+dCk+M6NYVBxLPkGA43zOul3Vnkx3pqP5BhDcTtC5AqMF7CXY7kD2GB2mX
+                idALP1CQbyHyCcQPrg6sfF6y5M+KzQAAAAMBAAEAAAGABfuS0aLu0CWTwHJL/ueQLPS9Jv
+                InGbwyjCKSuz1QJ1RD/dqfu3WPYTexuSAFd9Xn87GH+sSrMBuSJz0NL36tkGwXO4tXRqb/
+                rK5L7Ul0EuOT11JLIz1NawXIceQBabmIE5MtLzIZcwBeNC33aT7BQonIJiB3tMkpdnZ3WA
+                0+/a+sNb6Lu1Q/8m8jmEinaGU2YgOjrIYc5B1MBFkaccj6A5zM+Mb4YsJowqjnG53MDbe7
+                L2Opyt2dkQKu9jjR4C6je47RsVRZXG76Q28JfRItK29PbheX1NI/1/4AdQgxcSz9Y9lTQ8
+                T5sEN1cjsCgb0fT2kT1eD64obdXKjRERYFDXslUJy+rjemGJt2OaYLPoKlkL/oBFVOyC58
+                AvE/y1qc+2/kqcaks6WgayuqiJ8DiVDx8bewmRZAU2ZqAsGTix/FSsULH0AXRyiOghszDk
+                88o379OKCpSiERTiDrdpc2PePArzp3zn8J0qUFGsCoaQoDwyMF7Vy620vUYHyXTvyBAAAA
+                wDYwpvjaZFPjYnjJ4TNnxBQ+rxc1Inz4c4DgdATWK0RBnaQa//auFXXwJrsalphRWRPz2C
+                q1KW/jVj7cEk0cnYckHMwQl++vNXpRFKcXz3FgMwHd0uQGcUMbmxrhdKPl7m7jskRRT0pQ
+                e+M9aai38vUnVj0lkGNyMPJT7/WnMXi5zHG2GkfD8y1ZUrbyvBvnB9nN1NrHtEu7u+r2uC
+                lH0xIIn4J1Md47kPacf230abXk9xIoKURejbQJ5DrdNrnt9AAAAMEA4CIFKagfZPU0g4tL
+                061XOmD2T2v8/kp1DskFPaErUTNQZCEay8lA3FgYjZr2eDFBW3Uzwok+QGLUYrxcT0LVuo
+                kMG0inKLxIoH6gkl/VzYBxxJphAb+LBHrEJ4HfFvmZL3ObBzuWGc7mmtusNxhJX8bQl0kW
+                ip9PzgPcFiIoWPDbNtxvj2rdTmMdZymdYSb8NHKf0ZZB53i5ZReaAILqGfkAFgff4vUjDB
+                mzvA15971vBPKFKV4hBU6lhP18ONpBAAAAwQD2uldVYtLojL1HSHoawFlVxkJCKwGkHvf5
+                GEhN0YUSgQ1UEDPCDnh6/hZ5Wh9APNTsuWI1RhDieJ4ELhcxTC7M7Q+rUCdOQvZ26nQIfJ
+                s6jyYTrlgNZAgwzHkrYNMQ7lwYRxIrA6wKDgVoR1rc/ycaJjZ6OsMsthSJ4x0hN01H2WJ8
+                Qgb2+c3Nh6Vp52QF6UiHmXEaRgQCqgNAIfyLfk0BPN/tVRFhLKOILZP9tmHUikfPbb6+HV
+                DzRIbLWvmYFY0AAAAPdmFncmFudEB2YWdyYW50AQIDBA==
                 -----END OPENSSH PRIVATE KEY-----
           scope: GLOBAL
 tool:
